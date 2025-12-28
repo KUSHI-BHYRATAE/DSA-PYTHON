@@ -1,4 +1,4 @@
-#Creating  variables of diffrent data types to describe myself 
+#Creating  variables of diffrent data types to describe myself!
 
 name = "Kushi Bhyratae"
 age = 18
