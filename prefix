@@ -1,0 +1,61 @@
+def evaluate_prefix(expression):
+    stack = []
+
+    # Traverse from right to left
+    tokens = expression.split()[::-1]
+
+    for token in tokens:
+        # Boolean values
+        if token.lower() == "true":
+            stack.append(True)
+        elif token.lower() == "false":
+            stack.append(False)
+
+        # Numbers (including negative)
+        elif token.lstrip('-').isdigit():
+            stack.append(int(token))
+
+        # Unary operator
+        elif token == "not":
+            a = stack.pop()
+            stack.append(not a)
+
+        # Binary operators
+        else:
+            a = stack.pop()
+            b = stack.pop()
+
+            # Arithmetic
+            if token == '+':
+                stack.append(a + b)
+            elif token == '-':
+                stack.append(a - b)
+            elif token == '*':
+                stack.append(a * b)
+            elif token == '/':
+                stack.append(a // b)
+
+            # Comparison
+            elif token == '>':
+                stack.append(a > b)
+            elif token == '<':
+                stack.append(a < b)
+            elif token == '>=':
+                stack.append(a >= b)
+            elif token == '<=':
+                stack.append(a <= b)
+            elif token == '==':
+                stack.append(a == b)
+            elif token == '!=':
+                stack.append(a != b)
+
+            # Logical
+            elif token == 'and':
+                stack.append(a and b)
+            elif token == 'or':
+                stack.append(a or b)
+
+            else:
+                raise ValueError(f"Unknown operator: {token}")
+
+    return stack.pop()
