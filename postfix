@@ -1,0 +1,58 @@
+def evaluate_postfix(expression):
+    stack = []
+
+    for token in expression.split():
+        # Handle boolean literals
+        if token.lower() == "true":
+            stack.append(True)
+        elif token.lower() == "false":
+            stack.append(False)
+
+        # Handle numbers
+        elif token.lstrip('-').isdigit():
+            stack.append(int(token))
+
+        # Unary operator (not)
+        elif token == "not":
+            a = stack.pop()
+            stack.append(not a)
+
+        # Binary operators
+        else:
+            b = stack.pop()
+            a = stack.pop()
+
+            if token == '+':
+                stack.append(a + b)
+            elif token == '-':
+                stack.append(a - b)
+            elif token == '*':
+                stack.append(a * b)
+            elif token == '/':
+                stack.append(a // b)
+
+            # Comparison operators
+            elif token == '>':
+                stack.append(a > b)
+            elif token == '<':
+                stack.append(a < b)
+            elif token == '>=':
+                stack.append(a >= b)
+            elif token == '<=':
+                stack.append(a <= b)
+            elif token == '==':
+                stack.append(a == b)
+            elif token == '!=':
+                stack.append(a != b)
+
+            # Logical operators
+            elif token == 'and':
+                stack.append(a and b)
+            elif token == 'or':
+                stack.append(a or b)
+
+            else:
+                raise ValueError(f"Unknown operator: {token}")
+
+    return stack.pop()
+    
