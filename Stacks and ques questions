@@ -1,0 +1,149 @@
+STACK-BASED QUESTIONS (Using given functions)
+1. Undo Last N Operations in a System
+
+Scenario:
+A system logs user actions (strings). You need to undo the last N actions.
+
+Input Example:
+
+Actions: login, upload, edit, delete
+Undo: 2
+
+Task:
+
+Push all actions into a stack
+Pop N times to undo
+Display remaining actions
+
+Functions to use:
+
+push(), pop(), display()
+2. Check Palindrome Using Stack
+
+Scenario:
+Verify whether a given string is a palindrome.
+
+Task:
+
+Push all characters into a stack
+Compare by popping and matching original string
+
+Constraint:
+
+Use only stack operations
+3. Reverse Data Using Stack
+
+Scenario:
+Reverse a list of numbers using a stack.
+
+Input:
+
+[10, 20, 30, 40]
+
+Output:
+
+[40, 30, 20, 10]
+
+Task:
+
+Push all elements
+Pop and print in reverse order
+4. Find Element from Top Without Removing It Permanently
+
+Scenario:
+Find if an element exists in the stack without destroying stack order.
+
+Task:
+
+Use only:
+pop()
+push()
+No direct search() allowed (force logic)
+
+Goal:
+
+Restore original stack after operation
+5. Balanced Parentheses Checker
+
+Scenario:
+Validate if parentheses are balanced:
+
+"( ( ) ( ) )"
+
+Task:
+
+Push opening brackets
+Pop when closing bracket appears
+Check stack empty at end
+
+
+
+
+🔶 QUEUE-BASED QUESTIONS (Using given functions)
+6. Reverse First K Elements of Queue
+
+Scenario:
+Reverse first K elements of a queue.
+
+Input:
+
+Queue: 10 → 20 → 30 → 40 → 50
+K = 3
+
+Output:
+
+30 → 20 → 10 → 40 → 50
+
+Hint:
+
+Use a stack temporarily
+7. Check if Queue is Palindrome
+
+Scenario:
+Determine if queue elements form a palindrome.
+
+Task:
+
+Use:
+dequeue(), enqueue()
+Stack for comparison
+8. Move All Even Numbers to Rear
+
+Scenario:
+Rearrange queue so that all even numbers come after odd numbers.
+
+Example:
+
+Input: 10 → 21 → 32 → 43
+Output: 21 → 43 → 10 → 32
+
+Constraint:
+
+Maintain relative order
+9. Simulate Ticket Processing System
+
+Scenario:
+Each ticket takes 1 unit time.
+
+Task:
+
+Process queue until empty
+Print order of processing
+
+Goal:
+
+Use dequeue() repeatedly
+10. Find Position of Element in Queue
+
+Scenario:
+Find position of element without using search().
+
+Task:
+
+Traverse queue using:
+dequeue()
+enqueue() (to restore order)
+
+Output:
+
+Return index (1-based)
